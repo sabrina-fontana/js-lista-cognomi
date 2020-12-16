@@ -6,12 +6,15 @@ var cognomeUtente = prompt('Inserisci il tuo cognome');
 cognomi.push(cognomeUtente);
 // metto in ordine alfabetico l'array
 cognomi.sort();
-// riprendo l'ul dall'HTML
+
 var output = document.getElementById('output-cognomi');
+var outputIndex = document.getElementById('output-index');
 // ciclo for per stampare in html
 for (var i = 0; i < cognomi.length; i++) {
-  output.innerHTML += '<li>' + cognomi[i] + '</li>';
+  output.innerHTML += '<li id="li-' + i + '">' + cognomi[i] + '</li>';
 }
 
 var indexUtente = cognomi.indexOf(cognomeUtente);
-output.innerHTML += '<div>' + 'Ti trovi nella posizione n. ' + (indexUtente + 1) + '</div>';
+outputIndex.innerHTML = '<div>' + 'Ti trovi nella posizione n. ' + (indexUtente + 1) + '</div>';
+
+document.getElementById('li-' + indexUtente).innerHTML += ' Ti trovi nella posizione' + indexUtente;
