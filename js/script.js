@@ -1,5 +1,5 @@
 // array cognomi
-var cognomi = ['Bianchi', 'Rossi', 'Verdi', 'Brambilla', 'Poncia', 'Ruffoni', 'Gargantini', 'Cappi', 'Mazzucchi'];
+var cognomi = ['Bianchi', 'Rossi', 'Verdi', 'Brambilla', 'Poncia', 'Ruffoni', 'Gargantini', 'Cappi', 'Mazzucchi', 'Viola', 'Monaci'];
 // cognome inserito dall'utente
 var cognomeUtente = prompt('Inserisci il tuo cognome');
 // pusho il cognome dell'utente nell'array
@@ -15,6 +15,28 @@ for (var i = 0; i < cognomi.length; i++) {
 }
 
 var indexUtente = cognomi.indexOf(cognomeUtente);
-outputIndex.innerHTML = '<div>' + 'Ti trovi nella posizione n. ' + (indexUtente + 1) + '</div>';
 
-document.getElementById('li-' + indexUtente).innerHTML += ' Ti trovi nella posizione' + indexUtente;
+var position = document.getElementById('li-' + indexUtente);
+
+position.innerHTML += ' Ti trovi nella posizione ' + (indexUtente + 1);
+
+position.style.color = 'red';
+
+var button = document.getElementById('button');
+var ciao = document.getElementById('ciao');
+
+button.addEventListener('click',
+  function() {
+    var nome = prompt('Come ti chiami?');
+    var sesso = prompt('Sei maschio o femmina?');
+    if (sesso === 'maschio') {
+      ciao.style.display = 'block';
+      ciao.className = 'blue';
+      ciao.innerHTML += nome;
+    } else if (sesso === 'femmina') {
+      ciao.style.display = 'block';
+      ciao.className = 'pink';
+      ciao.innerHTML += nome;
+    } 
+  }
+)
